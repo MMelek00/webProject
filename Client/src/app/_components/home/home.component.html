@@ -1,0 +1,58 @@
+<div class="container">
+  <mat-card class="search">
+    <div class="form-container">
+      <form #search="ngForm" (ngSubmit)="onSearch()">
+        <div class="group">
+          <mat-input-container>
+            <input matInput
+              name="name"
+              placeholder="Name"
+              [(ngModel)]="rocket.name" />
+          </mat-input-container>
+        </div>
+        <div class="group">
+          <mat-input-container>
+              <input matInput 
+              [(ngModel)]="rocket.boosters" 
+              pattern="[0-9]{1,30}" 
+              placeholder="Boosters" 
+              name="boosters">
+          </mat-input-container>
+          <mat-input-container>
+              <input matInput 
+              [(ngModel)]="rocket.costPerLaunch" 
+              pattern="[0-9]{1,30}" 
+              placeholder="Cost Per Launch" 
+              name="costPerLaunch">
+          </mat-input-container>
+        </div>
+        <span class="active">Active </span>
+        <div id="active-container">
+          <mat-radio-group [(ngModel)]="rocket.active" name="Active">
+            <mat-radio-button color="primary" [value]="true" >
+              True
+            </mat-radio-button>
+            <mat-radio-button color="primary" [value]="false" >
+              False
+            </mat-radio-button>
+            <mat-radio-button [value]="" color="primary">Any</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="button-container">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit">
+            <mat-icon>search</mat-icon>
+            <span>Search</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </mat-card>  
+
+  <app-rockets-list *ngIf="!reloading"
+    [type]="'search'"
+    [searchModel]="rocket" >
+  </app-rockets-list>
+</div>

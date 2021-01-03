@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="new-note" (click)="onAddNote()">
+		<span>
+			<mat-icon>note_add</mat-icon>
+	    	<span>Add Note</span>
+		</span>
+	</div>
+	<ul>
+	  <app-note *ngFor="let note of notes"
+	    [id]="note['id']" 
+	    [content]="note['content']" 
+	    (delete)="deleteNote($event)"
+	    (update)="updateNote($event)"
+	    >
+	  </app-note>
+	</ul> 	
+
+	<div class="button-container">
+	  <button *ngIf="currentPage<maxPages" (click)="onLoadMore()"
+	    mat-raised-button
+	    color="primary"
+	    type="button">
+	    <mat-icon>cached</mat-icon>
+	    <span>Load More</span>
+	  </button>
+	</div>
+
+</div>

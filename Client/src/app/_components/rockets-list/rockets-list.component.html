@@ -1,0 +1,20 @@
+<ul>
+  <app-rocket *ngFor="let rocket of rockets"
+    [id]="rocket['id']" 
+    [name]="rocket['name']"
+    [boosters]="rocket['boosters']"
+    [costPerLaunch]="rocket['costPerLaunch']"
+    [active]="rocket['active']" 
+    [favorite]="rocket['favorite']" >
+  </app-rocket>
+</ul> 
+
+<div class="button-container">
+  <button *ngIf="currentPage<maxPages" (click)="onLoadMore()"
+    mat-raised-button
+    color="primary"
+    type="button">
+    <mat-icon>cached</mat-icon>
+    <span>Load More</span>
+  </button>
+</div>

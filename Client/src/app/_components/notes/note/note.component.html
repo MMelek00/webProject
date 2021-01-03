@@ -1,0 +1,19 @@
+<mat-card class="box">
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="content" class="content"></textarea>
+  </mat-form-field>
+  <div class="actions">
+    <button (click)="onUpdateNote()"
+      mat-raised-button
+      color="primary">
+      <mat-icon>update</mat-icon>
+      <span>Update</span>
+    </button>
+    <button (click)="onDeleteNote()"
+      mat-raised-button
+      color="primary">
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </div>
+</mat-card>

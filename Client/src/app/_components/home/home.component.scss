@@ -1,0 +1,45 @@
+.search{
+  margin: 10px;
+  padding-bottom: 15px;
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    form{
+      width: 100%;
+      max-width: 680px;
+      .group {
+        display: flex;
+        justify-content: center;
+      }
+      mat-input-container{
+        width: 100%;
+        min-width: 100px;
+      }    
+      span.active {
+        color: #9E9E9E;
+      }  
+      #active-container{
+        margin: 10px 0 10px 0;
+        mat-radio-group {
+          mat-radio-button {
+            margin-right: 10px;
+          }
+        }
+      }
+      .button-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        button {
+          width: 200px;
+        }       
+      }     
+
+    }
+  }
+}
+
+.container {
+  margin-top: 74px;
+}

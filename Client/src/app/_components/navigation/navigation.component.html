@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <img src="/assets/logo-nav.png" alt="Logo"/>
+  <ul class="nav">
+    <li>
+      <a class="menu-item"
+        [routerLink]="['home']"
+        routerLinkActive="link-active">
+        <mat-icon>home</mat-icon>
+      </a>  
+    </li>
+    <li>
+      <a class="menu-item"
+        [routerLink]="['favorites']"
+        routerLinkActive="link-active">
+        <mat-icon>favorite</mat-icon>
+      </a>  
+    </li>
+    <li>
+      <a class="menu-item"
+        [routerLink]="['notes']"
+        routerLinkActive="link-active">
+        <mat-icon>note</mat-icon>
+      </a>
+    </li>
+    <li>
+      <a class="menu-item"
+        (click)="logout()"
+        [routerLink]="['login']"
+        routerLinkActive="link-active">
+        <mat-icon>power_settings_new</mat-icon>
+        <!-- <span>SignOut</span> -->  
+      </a>
+    </li>
+  </ul>
+</mat-toolbar>

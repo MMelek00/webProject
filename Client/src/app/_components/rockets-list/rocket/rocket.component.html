@@ -1,0 +1,24 @@
+<mat-card class="box">
+  <div class="photo">
+    <!-- <a [routerLink]="['/rocket', id]"
+       routerLinkActive="link-active"> -->
+      <img md-card-image [src]="image" />
+    <!-- </a> -->
+  </div>
+  <div class="info">
+    <mat-card-header>
+      <mat-card-title>{{ name }}</mat-card-title>
+    </mat-card-header>
+    <div class="more-info">
+      <div>Boosters: {{ boosters }}</div>
+      <div>Cost Per Launch: {{ costPerLaunch }}</div>
+      <span *ngIf="active" >Active</span>
+    </div>
+    <mat-card (click)="onFavorite()" class="favorite-button">
+      <span>
+        <mat-icon *ngIf="!favorite">favorite_border</mat-icon>
+        <mat-icon *ngIf="favorite">favorite</mat-icon>
+      </span>
+    </mat-card>
+  </div>
+</mat-card>
