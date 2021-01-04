@@ -45,7 +45,7 @@ class AuthController extends Controller
             'password' => bcrypt($credentials['password']),
         ]);
         
-        $result['token'] = $this->respondWithToken($result['id']);        
+        $result['token'] = $this->tokenFromUser($result['id']);        
 
         return response($result->only(['email', 'token']));
     }
@@ -56,26 +56,16 @@ class AuthController extends Controller
         auth()->shouldUse('api');
         // grab credentials from the request
         $credentials = $request->only('email', 'password');
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
 
         if (auth()->attempt($credentials)) {
-            $result['token'] = respondWithToken($token);
+            $result['token'] = auth()->issue();
             $result['email'] = $credentials['email'];
            return response($result);
         }
     
         return response(['Invalid Credentials']);
     }
-    protected function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]);
-    }
+    
     public function tokenFromUser($id)
     {
         // generating a token from a given user.
