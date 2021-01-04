@@ -2,17 +2,17 @@ import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { BookService } from '../../_services/note.service';
+import { BooksService } from '../../_services/book.service';
 import  { AuthenticationService } from '../../_services/authentication.service';
 import { Book } from '../../_models/book.model';
 
 @Component({
-  selector: 'app-notes',
-  templateUrl: './notes.component.html',
-  styleUrls: ['./notes.component.scss'],
-  providers: [ BookService ]
+  selector: 'app-books',
+  templateUrl: './books.component.html',
+  styleUrls: ['./books.component.scss'],
+  providers: [ BooksService ]
 })
-export class NotesComponent implements OnInit {
+export class BooksComponent implements OnInit {
 
   @Input() id: number;
   @Output() onLoad: EventEmitter<number> = new EventEmitter<number>();
@@ -21,7 +21,7 @@ export class NotesComponent implements OnInit {
   public maxPages: number;
 
   constructor(
-    private noteService: BookService, 
+    private BooksService: BooksService, 
     private authService: AuthenticationService
   ) {
     this.books = [];
@@ -39,7 +39,7 @@ export class NotesComponent implements OnInit {
   }
 
   getNotes(page=1){
-    this.noteService.getBooks(page)
+    this.BooksService.getBooks(page)
 	    .subscribe(res => {
         let books = JSON.parse(res._body);
         if(books.length != 0) {
@@ -52,7 +52,7 @@ export class NotesComponent implements OnInit {
   }
 
   onAddBook() {
-    this.noteService.addBook()
+    this.BooksService.addBook()
       .subscribe(res => {
         this.books.push(new Book());
         this.onLoad.emit(this.books.length);
@@ -74,7 +74,7 @@ export class NotesComponent implements OnInit {
   updateBook(event) {
     for(let i = 0; i < this.books.length; i++){
       if(this.books[i].id == event.id) {
-        this.books[i].content = event.content;
+        this.books[i].title = event.title;
         break;
       }
     }

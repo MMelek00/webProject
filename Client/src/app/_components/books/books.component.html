@@ -1,18 +1,20 @@
 <div class="container">
-	<div class="new-note" (click)="onAddNote()">
+	<div class="new-book" (click)="onAddBook()">
 		<span>
-			<mat-icon>note_add</mat-icon>
-	    	<span>Add Note</span>
+			<mat-icon>book_add</mat-icon>
+	    	<span>Add Book</span>
 		</span>
 	</div>
 	<ul>
-	  <app-note *ngFor="let note of notes"
-	    [id]="note['id']" 
-	    [content]="note['content']" 
+	  <app-book *ngFor="let book of notes"
+	    [id]="book['id']" 
+		[title]="book['title']" 
+		[cover]="book['cover']" 
+		[date]="book['date']" 
 	    (delete)="deleteNote($event)"
 	    (update)="updateNote($event)"
 	    >
-	  </app-note>
+	  </app-book>
 	</ul> 	
 
 	<div class="button-container">

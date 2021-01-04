@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { RocketService } from '../../../_services/rocket.service';
+import { BookService } from '../../../_services/books.service';
 
 @Component({
   selector: 'app-rocket',
@@ -18,7 +18,7 @@ export class RocketComponent implements OnInit {
   private isFavorite: boolean;
   
 
-  constructor(private rocketService: RocketService) {
+  constructor(private rocketService: BookService) {
     this.name = "NoName Rocket",
     this.image = "/assets/default_rocket.png";
     this.id = 0;

@@ -39,7 +39,7 @@ class BooksController extends Controller
         $cover = $request['cover'];
         $date = $request['date'];
 
-        $result = Books::addBook($content,$cover,$date);
+        $result = Books::addBook($title,$cover,$date);
         
         return response($result);
     }
@@ -53,9 +53,11 @@ class BooksController extends Controller
      */
     public function update(Request $request, $book_id)
     {
-        $content = $request['content'];
-        
-        $result = Books::editBook($book_id, $content);
+        $title = $request['title'];
+        $title = $request['cover'];
+        $title = $request['date'];
+
+        $result = Books::editBook($book_id, $title,$cover,$date);
         
         return response($result);
     }

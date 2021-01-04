@@ -2,7 +2,7 @@ import { Component, Input, Output, OnInit,EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { BookService } from '../../_services/rocket.service';
+import { BookService } from '../../_services/books.service';
 import  { AuthenticationService } from '../../_services/authentication.service';
 import { Book } from '../../_models/book.model';
 

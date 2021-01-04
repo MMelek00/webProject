@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { Book } from '../_models/book.model';
 
 @Injectable()
-export class BookService {
+export class BooksService {
 
   public token: string;
   private headers: Headers;

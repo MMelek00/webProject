@@ -19,10 +19,10 @@ import { RegisterComponent } from './_components/auth/register/register.componen
 import { NavigationComponent } from './_components/navigation/navigation.component';
 import { HomeComponent } from './_components/home/home.component';
 import { FavoritesComponent } from './_components/favorites/favorites.component';
-import { NotesComponent } from './_components/notes/notes.component';
+import { BooksComponent } from './_components/books/books.component';
 import { RocketsListComponent } from './_components/rockets-list/rockets-list.component';
 import { RocketComponent } from './_components/rockets-list/rocket/rocket.component';
-import { NoteComponent } from './_components/notes/note/note.component';
+import { NoteComponent } from './_components/books/book/book.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import { NoteComponent } from './_components/notes/note/note.component';
     NavigationComponent,
     HomeComponent,
     FavoritesComponent,
-    NotesComponent,
+    BooksComponent,
     RocketsListComponent,
     RocketComponent,
     NoteComponent
